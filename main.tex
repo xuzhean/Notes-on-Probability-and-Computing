@@ -2,7 +2,7 @@
 \usepackage[hmargin=0.6in,vmargin=0.8in]{geometry}
 \usepackage{amsfonts, amssymb, amsmath, amsthm}
 \usepackage{hyperref, subfiles, thmtools}
-\usepackage{titlesec, enumitem}
+\usepackage{titlesec, enumitem, setspace}
 \setcounter{tocdepth}{1}
 \hypersetup{colorlinks=true}
 \setlength{\parindent}{0em}
@@ -27,19 +27,19 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}{Remark}
 \newtheorem{example}{Example}[section]
-% \declaretheoremstyle[%
-%   spaceabove=0pt,%reduce or increase between theorem and proof
-%   spacebelow=0pt,%reduce or increase
-%   headfont=\normalfont\itshape,%
-%   postheadspace=1em,%
-%   qed=\qedsymbol%
-% ]{mystyle} 
-% \declaretheorem[name={proof},style=mystyle,unnumbered,
-% ]{pf}
-% \declaretheorem[name={solution},style=mystyle,unnumbered,
-% ]{sol}
-% \renewcommand{\proofname}{proof}
-% \newenvironment{solution}{\begin{proof}[solution]}{\end{proof}}
+\declaretheoremstyle[
+  spaceabove=\parskip,
+  spacebelow=0em,
+  headfont=\normalfont\itshape,
+  postheadspace=1em,
+  qed=\qedsymbol
+]{mystyle} 
+\declaretheorem[name={proof},style=mystyle,unnumbered,
+]{pf}
+\declaretheorem[name={solution},style=mystyle,unnumbered,
+]{sol}
+\renewcommand{\proofname}{proof}
+\newenvironment{solution}{\begin{proof}[solution]}{\end{proof}}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
