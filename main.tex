@@ -1,17 +1,53 @@
 \documentclass[a4paper,10pt]{article}
-
-\usepackage[hmargin=1in,vmargin=1in]{geometry}
+\usepackage[hmargin=0.6in,vmargin=0.8in]{geometry}
 \usepackage{amsfonts, amssymb, amsmath, amsthm}
-\usepackage{hyperref, subfiles}
-\usepackage{titlesec}
-\titleformat*{\section}{\centering\Large\bf}
+\usepackage{hyperref, subfiles, thmtools}
+\usepackage{titlesec, enumitem}
 \setcounter{tocdepth}{1}
+\hypersetup{colorlinks=true}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\setenumerate[1]{itemsep=0em,partopsep=0em,parsep=0.25em,topsep=0em}
+\setitemize[1]{itemsep=0em,partopsep=0em,parsep=0.25em,topsep=0em}
+
+\newtheoremstyle{thry}% name
+{\parskip}% Space above
+{0em}% Space below
+{\it}% Body font
+{0em}% Indent amount
+{\bf}% Theorem head font
+{}% Punctuation after theorem head
+{0.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’ )
+\theoremstyle{thry}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}[section]
+% \declaretheoremstyle[%
+%   spaceabove=0pt,%reduce or increase between theorem and proof
+%   spacebelow=0pt,%reduce or increase
+%   headfont=\normalfont\itshape,%
+%   postheadspace=1em,%
+%   qed=\qedsymbol%
+% ]{mystyle} 
+% \declaretheorem[name={proof},style=mystyle,unnumbered,
+% ]{pf}
+% \declaretheorem[name={solution},style=mystyle,unnumbered,
+% ]{sol}
+% \renewcommand{\proofname}{proof}
+% \newenvironment{solution}{\begin{proof}[solution]}{\end{proof}}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
-\newcommand{\pr}{\mathbb{P}}
+\newcommand{\Om}{\Omega}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\Pb}{\mathbb{P}}
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\tb}{\textbf}
 \newcommand{\ti}{\textit}
@@ -20,6 +56,13 @@
 \newcommand{\eps}{\epsilon}
 \newcommand{\D}{\mathrm{d}\,}
 \newcommand{\rnum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand{\minispacing}{
+\setlength{\abovedisplayshortskip}{0.5em}
+\setlength{\belowdisplayshortskip}{0.5em}
+\setlength{\abovedisplayskip}{0.5em}
+\setlength{\belowdisplayskip}{0.5em}
+}
+
 
 \title{\bf Notes on Probability and Computing\vskip 1em}
 \author{Xu Zhean}
