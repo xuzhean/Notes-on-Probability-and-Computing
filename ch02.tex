@@ -13,7 +13,59 @@ The \ti{expectation} of a discrete random variable $X$, denoted by $\E[X]$, is g
 
 \begin{theorem}[Linearity of expectation]
 	For discrete random variables $X_1,X_2,\cdots,X_n$ with finite expectations and any contants $c_1,c_2,\cdots,c_n$,
-	$\E[\;\!\sum_{i=1}^{n}c_iX_i]=\sum_{i=1}^{n}c_i\E[X_i]$.
+	we have $\E[\;\!\sum_{i=1}^{n}c_iX_i]=\sum_{i=1}^{n}c_i\E[X_i]$.
 \end{theorem}
+
+\begin{pf}
+	Observe that we only need to prove the following two cases:
+	\begin{equation*}
+		\begin{split}
+			\E[X+Y]&=\sum_i\sum_j(i+j)\cdot\Pb((X=i)\cap(Y=j))\\
+			&=\sum_ii\sum_j\Pb((X=i)\cap(Y=j))+\sum_jj\sum_i\Pb((X=i)\cap(Y=j))=\E[X]+\E[Y], \\
+			\E[cX]&=\sum_ii\cdot\Pb(cX=j)=c\cdot\sum_j(j/c)\cdot\Pb(X=j/c)=c\cdot\sum_kk\cdot\Pb(X=k)=c\cdot \E[X].
+		\end{split}
+	\end{equation*}
+	When there are countably infinite variables, the situation becomes more subtle. We will discuss it later.
+\end{pf}
+
+\begin{theorem}[Jensen's inequality]
+	If $f$ is a convex function, then $\E[f(X)]\ge f(\E[X])$.
+\end{theorem}
+
+\begin{pf}
+	Assume that $f$ has a Taylor expansion. Let $\mu=\E[X]$. By Taylor's theorem, there is a value $c$ such that
+	\[
+		f(x)=f(\mu)+f'(\mu)(x-\mu)+\frac{f''(c)(x-\mu)^2}{2}\ge f(\mu)+f'(\mu)(x-\mu)
+	\]
+	Taking expectations of both sides
+	\[
+		\E[f(X)]\ge\E[f(\mu)+f'(\mu)(X-\mu)]=\E[f(\mu)]+f'(\mu)(\E[X]-\mu)=f(\mu)=f(\E[X])
+	\]
+	An alternative proof will be presented in Exercise 2.10.
+\end{pf}
+
+Define \ti{conditional expectation} $\E[Y\mid Z=z]=\sum_{y}y\cdot\Pb(Y=y\mid Z=z)$ and $\E[Y\mid Z]$ as a random variable $f(Z)$ that takes on the value $\E[Y\mid Z=z]$ when $Z=z$.
+
+\begin{theorem}[Law of total expectation]
+	For any random variables $X$ and $Y$, 
+	\[
+		\E[X]=\sum_y\Pb(Y=y)\cdot\E[X\mid Y=y]=\E[\E[X\mid Y]].
+	\]
+\end{theorem}
+
+A \ti{Bernoulli} random variable $X$ takes $1$ with probability $p$ and $0$ with probability $1-p$. A \ti{binomial} random variable $X$ with parameters $n$ and $p$, denoted by $B(n,p)$, is defined by \ti{probability distribution} $\Pb(X=k)=\binom{n}{k}\cdot p^k(1-p)^{n-k},\,n=0,2,\cdots,n$. Its expectation is $np$.
+
+A \ti{geometric} random variable $X$ with parameter $p$ is defined by probability distribution $\Pb(X=n) = (1-p)^{n-1}p,\,n=1,2,\cdots$. Its expectation is $1/p$. Geometric random variables are \href{https://en.wikipedia.org/wiki/Memorylessness}{\it memoryless}, that is, one ignores past failures as distribution does not change. Formally, we have the following statement.
+
+\begin{lemma}[Memorylessness] Let $X$ be a geometric random variable with parameter $p$. Then, for $n>0$,
+	\[
+		\Pb(X=n+k \mid X > k) = \Pb(X=n).
+	\]
+\end{lemma}
+
+\begin{lemma}
+	Let $X$ be a discrete random variable that takes on only nonnegative integer values. Then, 
+	\[\E[X]=\sum_{k=1}^{\infty}k\cdot \Pb(X=k) = \sum_{1\le i \le k} \Pb(X=k)=\sum_{i=1}^{\infty}\Pb(X \ge i)\]
+\end{lemma}
 
 \end{document}
