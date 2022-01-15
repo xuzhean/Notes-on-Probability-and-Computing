@@ -3,4 +3,17 @@
 \begin{document}
 \minispacing
 
+\section{Discrete Random Variables and Expectation}
+
+A \ti{(real-valued) random variable} $X$ on a sample space $\Om$ is a \href{https://en.wikipedia.org/wiki/Measurable_function}{\it measurable function} $X:\Om \ra \R$, and a \ti{discrete random variable} is one which may take on only a countable number of distinct values. ``$X=a$'' represents the set $\{s \in \Om \mid X(s) = a\}$, and we denote the probability of that event by $\Pb(X=a)=\sum_{s\in\Om:X(s)=a}\Pb(s)$.
+
+Random variables $X_1,X_2,\cdots,X_n$ are \ti{mutually independent} (simply called \ti{independent} when $k=2$) if and only if, for any subset $I \subseteq \{1,2,\cdots,k\}$ and any values $x_i\,(i\in I)$, $\Pb(\;\!\bigcap_{i\in I}(X_i=x_i))=\prod_{i\in I}\Pb(X_i=x_i)$.
+
+The \ti{expectation} of a discrete random variable $X$, denoted by $\E[X]$, is given by $\E[X]=\sum_{i} i \cdot \Pb(X=i)$. Note that the infinite series needs to be \href{https://en.wikipedia.org/wiki/Absolute_convergence}{\it absolutely convergent} (i.e. rearrangements do not change the value of the sum).
+
+\begin{theorem}[Linearity of expectation]
+	For discrete random variables $X_1,X_2,\cdots,X_n$ with finite expectations and any contants $c_1,c_2,\cdots,c_n$,
+	$\E[\;\!\sum_{i=1}^{n}c_iX_i]=\sum_{i=1}^{n}c_i\E[X_i]$.
+\end{theorem}
+
 \end{document}
