@@ -70,23 +70,23 @@ A \tb{geometric} random variable $X$ with parameter $p$ is defined by probabilit
 
 \bigskip
 
-{\bs Exercise 2.7} (a) By the memoryless property, we can ignore the case of $X > 1$ and $Y >1$, thus $\Pb[X=Y]=\Pb[(X=1)\cap(Y=1)]\,/\,(1-\Pb[(X>1)\cap(Y>1)])$. (b) Consider the first \tb{trial}, and we can get an equation of $\E[\max(X,Y)]$. (c) Construct a \tb{bernoulli trial} that success when there is at least one of two trials success. Its distribution of the first successful time provides the answer. (d) is the same as (a).
+\ex{2.7} (a) By the memoryless property, we can ignore the case of $X > 1$ and $Y >1$, thus $\Pb[X=Y]=\Pb[(X=1)\cap(Y=1)]\,/\,(1-\Pb[(X>1)\cap(Y>1)])$. (b) Consider the first \tb{trial}, and we can get an equation of $\E[\max(X,Y)]$. (c) Construct a \tb{bernoulli trial} that success when there is at least one of two trials success. Its distribution of the first successful time provides the answer. (d) is the same as (a).
 
-{\bs Exercise 2.14} \tb{(Negative binomial distribution)} the $k$-th successful time. $\Pb(X=n)=\binom{n-1}{k-1}p^k(1-p)^{n-k},\,n\ge k$.
+\ex{2.14} \tb{(Negative binomial distribution)} the $k$-th successful time. $\Pb(X=n)=\binom{n-1}{k-1}p^k(1-p)^{n-k},\,n\ge k$.
 
-{\bs Exercise 2.16.b} Break the sequence of flips up into disjoint blocks of $\left\lfloor \log_2 n - 2\log_2\log_2 n\right\rfloor$ consecutive flips. For sufficiently large $n$, the probability is less than
+\ex{2.16.b} Break the sequence of flips up into disjoint blocks of $\left\lfloor \log_2 n - 2\log_2\log_2 n\right\rfloor$ consecutive flips. For sufficiently large $n$, the probability is less than
 \[
 	\left(1-2^{\log_2n-2\log_2\log_2n}\right)^\frac{n}{\log_2n-2\log_2\log_2n}<\left(1-\frac{n}{\log_2^2n}\right)^{\frac{n}{\log_2^2 n}\cdot\log_2 n} < e^{-\ln n} = \frac{1}{n}.
 \]
 
-{\bs Exercise 2.29} If $\{X_n\}$ is a sequence of random variable satisfying $X_n\ra X$ \href{https://en.wikipedia.org/wiki/Almost_surely}{\bf almost surely} (i.e. except possibly on an event of zero probability) then \href{https://en.wikipedia.org/wiki/Monotone_convergence_theorem}{\bf (monotone convergence)} if $0\le X_n\le X_{n+1}$ for all $n$ almost surely, then $\E[X_n]\ra\E[X]$; \href{https://en.wikipedia.org/wiki/Dominated_convergence_theorem}{\bf (dominated convergence)} if $\lvert X_n\rvert \le Y$ for all $n$ almost surely and $\E[Y]$ is finite, then $\E[X_n]\ra\E[X]$. 
+\ex{2.29} If $\{X_n\}$ is a sequence of random variable satisfying $X_n\ra X$ \href{https://en.wikipedia.org/wiki/Almost_surely}{\bf almost surely} (i.e. except possibly on an event of zero probability) then \href{https://en.wikipedia.org/wiki/Monotone_convergence_theorem}{\bf (monotone convergence)} if $0\le X_n\le X_{n+1}$ for all $n$ almost surely, then $\E[X_n]\ra\E[X]$; \href{https://en.wikipedia.org/wiki/Dominated_convergence_theorem}{\bf (dominated convergence)} if $\lvert X_n\rvert \le Y$ for all $n$ almost surely and $\E[Y]$ is finite, then $\E[X_n]\ra\E[X]$. 
 
 Let $Z_n=\sum_{i=0}^{n}X_n$. We have $Z_n \ra \sum_{i=0}^{\infty} X_n$ and $\lvert Z_n \rvert \le \sum_{i=0}^{\infty} \lvert X_n \rvert$ whose expectation is finite ($\E[\sum_{i=0}^{\infty}|X_n|]=\sum_{i=0}^{\infty}\E[|X_n|]<\infty$ is a consequence of monotone convergence). By dominated convergence, it follows that
 \[
 	\sum_{j=0}^{n}\E[X_j]=\E\biggl[\,\sum_{j=0}^{n}X_j\biggr]=\E[Z_n] \ra \E[Z] = \E\biggl[\,\sum_{j=0}^{\infty}X_j\biggr],\qquad n \ra \infty.
 \]
 
-{\bs Exercise 2.32} For $i > m$, $\Pb(E_i)=\frac{1}{n}\cdot\frac{m}{i-1}$. Putting this all together, we get $\Pb(E)=\frac{m}{n}\sum_{j=m+1}^{n} \frac{1}{j-1}$. Then,
+\ex{2.32} For $i > m$, $\Pb(E_i)=\frac{1}{n}\cdot\frac{m}{i-1}$. Putting this all together, we get $\Pb(E)=\frac{m}{n}\sum_{j=m+1}^{n} \frac{1}{j-1}$. Then,
 \[
 	\frac{m}{n}\cdot \ln\left(\frac{n}{m}\right)=\frac{m}{n}\cdot\int_{m+1}^{n+1}\frac{\D x}{x-1}\le \Pb(E)\le \frac{m}{n}\cdot\int_{m}^{n}\frac{\D x}{x-1}=\frac{m}{n}\cdot\ln\left(\frac{n-1}{m-1}\right)
 \]

@@ -43,16 +43,16 @@ In the \href{https://en.wikipedia.org/wiki/Bayesian_inference}{\bf Bayesian appr
 
 \bigskip
 
-{\bs Exercise 1.6}
+\ex{1.6}
 Using mathematical induction, we have $p_{i,j} = \frac{i-1}{i+j-1}\cdot p_{i-1,j} + \frac{j-1}{i+j-1}\cdot p_{i,j-1} = \frac{i+j-2}{i+j-1}\cdot\frac{1}{i+j-2} = \frac{1}{i+j-1}$.
 
-{\bs Exercise 1.7.b} 
+\ex{1.7.b} 
 Let $F_{b_1b_2\cdots b_n}$ be the intersection of events $E_i\,(b_i=1)$ or $\Om\backslash E_i\,(b_i=0)$, and $P_{k}$ be the sum of $\Pb(F_b)$ where $b$ consists of $k$ one and $n-k$ zero. Then for every $k \ge 1$, we have $\sum_{i=1}^{l}(-1)^{i+1}\binom{k}{i} = 1 + (-1)^{l+1}\binom{k-1}{l} \ge 1$. Multiply both sides by $P_k$ and sum them up. We eventually reach the desired inequality.
 
-{\bs Exercise 1.11.b\ }
+\ex{1.11.b}
 $p_3 = p_1\cdot (1-p_2) + (1-p_1) \cdot p_2 \Ra q_3 = 1-2p_3 = (1-2p_1)(1-2p_2) = q_1q_2$. Is there any underlying motivation?
 
-{\bs Exercise 1.24} \href{https://en.wikipedia.org/wiki/Karger's_algorithm}{\tb{(Karger's algorithm)}} Let $K$ be the minimum $r$-way cut-set. Considering all $r$-way cut-sets consisting of $r-1$ single vertex, the total size is $m\cdot \binom{n-2}{r-1}$ with an upper bound $(m-|K|)\cdot \binom{n}{r-1}$. It follows that
+\ex{1.24} \href{https://en.wikipedia.org/wiki/Karger's_algorithm}{\tb{(Karger's algorithm)}} Let $K$ be the minimum $r$-way cut-set. Considering all $r$-way cut-sets consisting of $r-1$ single vertex, the total size is $m\cdot \binom{n-2}{r-1}$ with an upper bound $(m-|K|)\cdot \binom{n}{r-1}$. It follows that
 	\[
 	m \cdot \binom{n-2}{r-1} \le (m-|K|)\cdot \binom{n}{r-1} \quad\Ra\quad 1-\frac {|K|}{m} \ge \binom{n-2}{r-1}\binom n{r-1}^{-1}=\frac{(n-r+1)(n-r)}{n(n-1)}.
 	\]

@@ -5,7 +5,7 @@
 
 \section{Moments and Deviations}
 
-\begin{theorem}\tb{(Markov's Inequlity)}
+\begin{theorem}\tb{(Markov's Inequality)}
 	Let $X$ be a random variable with only nonnegative values. Then, for all $a > 0$,
 	\[
 		\Pb(X \ge a) \le \frac{\E[X]}{a}
@@ -23,14 +23,14 @@ The \tb{$k$-th moment} of a random variable $X$ is $\E[X^k]$. The \tb{variance} 
 \end{lemma}
 
 \begin{lemma}
-	For any two independent random variables $X$ and $Y$, $\E[X \cdot Y] = \E[X] \cdot \E[Y]$. (the opposite does not hold)
+	For any two independent random variables $X$ and $Y$, $\E[X \cdot Y] = \E[X] \cdot \E[Y]$. (opposite does not hold)
 \end{lemma}
 
 \begin{corollary}
 	If $X$ and $Y$ are independent random variables, then $\Cov(X,Y)=0$.
 \end{corollary}
 
-\begin{theorem}\tb{(Linearity of variance)}
+\begin{theorem}\na{Linearity of variance}
 	Let $X_1,X_2,\cdots,X_n$ be mutually independent random variables. Then
 	\[
 		\Var\biggl[\;\!\sum_{i=1}^{n}X_i\biggr]=\sum_{i=1}^{n}\Var[X_i]
@@ -39,7 +39,7 @@ The \tb{$k$-th moment} of a random variable $X$ is $\E[X^k]$. The \tb{variance} 
 
 For example, a Bernoulli trial with success probability $p$ has variable $p(1-p)$, therefore the variance of a binomial random variable $X$ with parameters $n$ and $p$ is $np(1-p)$.
 
-\begin{theorem}\tb{(Chebyshev's inequality)}
+\begin{theorem}\na{Chebyshev's inequality}
 	Let $X$ be a random variable. Then, for any $a > 0$,
 	\[
 		\Pb\left(\lvert X-\E[X]\rvert\ge a\right)\le \frac{\Var[X]}{a^2}
@@ -67,6 +67,22 @@ The \tb{median} of random variable $X$ is defined to be any value $m$ such that 
 \begin{corollary}
 	$\lvert \mu-m\rvert = \lvert \E[X]-m\rvert = \lvert\E[X-m]\rvert \le \E[\lvert X-m\rvert]\le \E[\lvert X-\mu\rvert]\le \sqrt{\E[(X-\mu)^2]}=\sigma$.
 \end{corollary}
+
+\bigskip
+
+\ex{3.10} By the memoryless property, we have $\E[X^k]=(1-p)\cdot \E[(X+1)^k]+p$. A clever way is to use falling factorial, and we will get $\E[X^{\underline k}]=k!\cdot (1-p)^{k-1}\cdot p^{-k},\; \E[X^n]=\sum_{k=0}^{n}{n \brace k}\cdot \E[X^{\underline k}]$.
+
+\ex{3.15} $\Var[\sum_i X_i]=\sum_i\Var[X_i]+2\sum_i\sum_j\Cov(X_i,X_j)$. If $\E[X_iX_j]=\E[X_i]\E[X_j]$, then $\Cov(X_i,X_j)=0$.
+
+\ex{3.18} \na{Cantelli's inequality} Let $Y = X - \E[X]$, and it follows that $\E[Y] = 0$ and $\Var[Y]=\E[Y^2]=\sigma^2$. For any $\lambda,u>0$ (taking $u=\sigma^2/\lambda$ in last step),
+\[
+	\Pb(Y\ge\lambda)=\Pb(Y+u\ge\lambda+u)\le\Pb\left((Y+u)^2\ge(\lambda+u)^2\right)\le\frac{\E[(Y+u)^2]}{(\lambda+u)^2}=\frac{\sigma^2+u^2}{(\lambda+u)^2}=\frac{\sigma^2}{\lambda^2+\sigma^2}
+\]
+
+\ex{3.26} \na{The weak law of large numbers} Apply Chebyshev’s Inequality, thus for any $\eps>0$ we have
+\[
+	\Pb\left(\left\lvert\frac{X_1+X_2+\cdots+X_n}{n}\right\rvert-\mu\right)\le\frac{\sigma^2}{\eps^2\cdot n}\ra 0,\qquad \textrm{as } n\ra\infty.
+\]
 
 \end{document}
 
