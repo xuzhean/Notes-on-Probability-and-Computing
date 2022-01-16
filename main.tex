@@ -2,20 +2,26 @@
 \usepackage[hmargin=0.6in,vmargin=0.8in]{geometry}
 \usepackage{amsfonts, amssymb, amsmath, amsthm}
 \usepackage{hyperref, subfiles, thmtools}
-\usepackage{titlesec, enumitem, setspace}
+\usepackage{sectsty, enumitem, setspace}
+\usepackage{tocloft}
+\newcommand{\bs}{\sffamily\bfseries}
+\renewcommand{\cfttoctitlefont}{\LARGE\bf}
+\renewcommand{\cftsecafterpnum}{\vskip 0em}
+\renewcommand{\cftsecfont}{\bf}
 \setcounter{tocdepth}{1}
 \hypersetup{colorlinks=true}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.5em}
 \setenumerate[1]{itemsep=0em,partopsep=0em,parsep=0.25em,topsep=0em}
 \setitemize[1]{itemsep=0em,partopsep=0em,parsep=0.25em,topsep=0em}
+\sectionfont{\LARGE\bs}
 
 \newtheoremstyle{thry}% name
 {\parskip}% Space above
 {0em}% Space below
-{\it}% Body font
+{}% Body font
 {0em}% Indent amount
-{\bf}% Theorem head font
+{\bs}% Theorem head font
 {}% Punctuation after theorem head
 {0.5em}% Space after theorem head
 {}% Theorem head spec (can be left empty, meaning ‘normal’ )
@@ -32,9 +38,9 @@
   spacebelow=0em,
   headfont=\normalfont\itshape,
   postheadspace=1em,
-  qed=\qedsymbol
+  qed=$\blacktriangleleft$
 ]{mystyle} 
-\declaretheorem[name={proof},style=mystyle,unnumbered,
+\declaretheorem[name={Proof},style=mystyle,unnumbered,
 ]{pf}
 \declaretheorem[name={solution},style=mystyle,unnumbered,
 ]{sol}
@@ -47,14 +53,16 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Om}{\Omega}
 \newcommand{\F}{\mathcal{F}}
-\newcommand{\Pb}{\mathbb{P}}
-\newcommand{\E}{\mathbb{E}}
+\newcommand{\Pb}{\mathbf{P}}
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\Var}{\mathbf{Var}}
+\newcommand{\Cov}{\mathbf{Cov}}
 \newcommand{\tb}{\textbf}
 \newcommand{\ti}{\textit}
 \newcommand{\Ra}{\Rightarrow}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\eps}{\epsilon}
-\newcommand{\D}{\mathrm{d}\,}
+\newcommand{\D}{\mathrm{d}\;\!}
 \newcommand{\rnum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 \newcommand{\minispacing}{
 \setlength{\abovedisplayshortskip}{0.5em}
@@ -74,4 +82,5 @@
     \clearpage
     \subfile{ch01.tex}
     \subfile{ch02.tex}
+    \subfile{ch03.tex}
 \end{document}

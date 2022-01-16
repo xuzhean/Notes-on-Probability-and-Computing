@@ -5,13 +5,13 @@
 
 \section{Discrete Random Variables and Expectation}
 
-A \ti{(real-valued) random variable} $X$ on a sample space $\Om$ is a \href{https://en.wikipedia.org/wiki/Measurable_function}{\it measurable function} $X:\Om \ra \R$, and a \ti{discrete random variable} is one which may take on only a countable number of distinct values. ``$X=a$'' represents the set $\{s \in \Om \mid X(s) = a\}$, and we denote the probability of that event by $\Pb(X=a)=\sum_{s\in\Om:X(s)=a}\Pb(s)$.
+A \tb{(real-valued) random variable} $X$ on a sample space $\Om$ is a \href{https://en.wikipedia.org/wiki/Measurable_function}{\bf measurable function} $X:\Om \ra \R$, and a \tb{discrete random variable} is one which may take on only a countable number of distinct values. ``$X=a$'' represents the set $\{s \in \Om \mid X(s) = a\}$, and we denote the probability of that event by $\Pb(X=a)=\sum_{s\in\Om:X(s)=a}\Pb(s)$.
 
-Random variables $X_1,X_2,\cdots,X_n$ are \ti{mutually independent} (simply called \ti{independent} when $k=2$) if and only if, for any subset $I \subseteq \{1,2,\cdots,k\}$ and any values $x_i\,(i\in I)$, $\Pb(\;\!\bigcap_{i\in I}(X_i=x_i))=\prod_{i\in I}\Pb(X_i=x_i)$.
+Random variables $X_1,X_2,\cdots,X_n$ are \tb{mutually independent} (simply called \tb{independent} when $k=2$) if and only if, for any subset $I \subseteq \{1,2,\cdots,k\}$ and any values $x_i\,(i\in I)$, $\Pb(\;\!\bigcap_{i\in I}(X_i=x_i))=\prod_{i\in I}\Pb(X_i=x_i)$.
 
-The \ti{expectation} of a discrete random variable $X$, denoted by $\E[X]$, is given by $\E[X]=\sum_{i} i \cdot \Pb(X=i)$. Note that the infinite series needs to be \href{https://en.wikipedia.org/wiki/Absolute_convergence}{\it absolutely convergent} (i.e. rearrangements do not change the value of the sum).
+The \tb{expectation} of a discrete random variable $X$, denoted by $\E[X]$, is given by $\E[X]=\sum_{i} i \cdot \Pb(X=i)$. Note that the infinite series needs to be \href{https://en.wikipedia.org/wiki/Absolute_convergence}{\bf absolutely convergent} (i.e. rearrangements do not change the value of the sum).
 
-\begin{theorem}[Linearity of expectation]
+\begin{theorem}\tb{(Linearity of expectation)}
 	For discrete random variables $X_1,X_2,\cdots,X_n$ with finite expectations and any contants $c_1,c_2,\cdots,c_n$,
 	we have $\E[\;\!\sum_{i=1}^{n}c_iX_i]=\sum_{i=1}^{n}c_i\E[X_i]$.
 \end{theorem}
@@ -28,7 +28,7 @@ The \ti{expectation} of a discrete random variable $X$, denoted by $\E[X]$, is g
 	When there are countably infinite variables, the situation becomes more subtle. We will discuss it later.
 \end{pf}
 
-\begin{theorem}[Jensen's inequality]
+\begin{theorem}\tb{(Jensen's inequality)}
 	If $f$ is a convex function, then $\E[f(X)]\ge f(\E[X])$.
 \end{theorem}
 
@@ -44,20 +44,20 @@ The \ti{expectation} of a discrete random variable $X$, denoted by $\E[X]$, is g
 	An alternative proof will be presented in Exercise 2.10.
 \end{pf}
 
-Define \ti{conditional expectation} $\E[Y\mid Z=z]=\sum_{y}y\cdot\Pb(Y=y\mid Z=z)$ and $\E[Y\mid Z]$ as a random variable $f(Z)$ that takes on the value $\E[Y\mid Z=z]$ when $Z=z$.
+Define \tb{conditional expectation} $\E[Y\mid Z=z]=\sum_{y}y\cdot\Pb(Y=y\mid Z=z)$ and $\E[Y\mid Z]$ as a random variable $f(Z)$ that takes on the value $\E[Y\mid Z=z]$ when $Z=z$.
 
-\begin{theorem}[Law of total expectation]
+\begin{theorem}\tb{(Law of total expectation)}
 	For any random variables $X$ and $Y$, 
 	\[
 		\E[X]=\sum_y\Pb(Y=y)\cdot\E[X\mid Y=y]=\E[\E[X\mid Y]].
 	\]
 \end{theorem}
 
-A \ti{Bernoulli} random variable $X$ takes $1$ with probability $p$ and $0$ with probability $1-p$. A \ti{binomial} random variable $X$ with parameters $n$ and $p$, denoted by $B(n,p)$, is defined by \ti{probability distribution} $\Pb(X=k)=\binom{n}{k}\cdot p^k(1-p)^{n-k},\,n=0,2,\cdots,n$. Its expectation is $np$.
+A \tb{Bernoulli} random variable $X$ takes $1$ with probability $p$ and $0$ with probability $1-p$. A \tb{binomial} random variable $X$ with parameters $n$ and $p$, denoted by $B(n,p)$, is defined by \tb{probability distribution} $\Pb(X=k)=\binom{n}{k}\cdot p^k(1-p)^{n-k},\,n=0,1,\cdots,n$. Its expectation is $np$.
 
-A \ti{geometric} random variable $X$ with parameter $p$ is defined by probability distribution $\Pb(X=n) = (1-p)^{n-1}p,\,n=1,2,\cdots$. Its expectation is $1/p$. Geometric random variables are \href{https://en.wikipedia.org/wiki/Memorylessness}{\it memoryless}, that is, one ignores past failures as distribution does not change. Formally, we have the following statement.
+A \tb{geometric} random variable $X$ with parameter $p$ is defined by probability distribution $\Pb(X=n) = (1-p)^{n-1}p,\,n=1,2,\cdots$. Its expectation is $1/p$. Geometric random variables are \href{https://en.wikipedia.org/wiki/Memorylessness}{\bf memoryless}, that is, one ignores past failures as distribution does not change. Formally, we have the following statement.
 
-\begin{lemma}[Memorylessness] Let $X$ be a geometric random variable with parameter $p$. Then, for $n>0$,
+\begin{lemma}\tb{(Memorylessness)} Let $X$ be a geometric random variable with parameter $p$. Then, for $n>0$,
 	\[
 		\Pb(X=n+k \mid X > k) = \Pb(X=n).
 	\]
@@ -67,5 +67,29 @@ A \ti{geometric} random variable $X$ with parameter $p$ is defined by probabilit
 	Let $X$ be a discrete random variable that takes on only nonnegative integer values. Then, 
 	\[\E[X]=\sum_{k=1}^{\infty}k\cdot \Pb(X=k) = \sum_{1\le i \le k} \Pb(X=k)=\sum_{i=1}^{\infty}\Pb(X \ge i)\]
 \end{lemma}
+
+\bigskip
+
+{\bs Exercise 2.7} (a) By the memoryless property, we can ignore the case of $X > 1$ and $Y >1$, thus $\Pb[X=Y]=\Pb[(X=1)\cap(Y=1)]\,/\,(1-\Pb[(X>1)\cap(Y>1)])$. (b) Consider the first \tb{trial}, and we can get an equation of $\E[\max(X,Y)]$. (c) Construct a \tb{bernoulli trial} that success when there is at least one of two trials success. Its distribution of the first successful time provides the answer. (d) is the same as (a).
+
+{\bs Exercise 2.14} \tb{(Negative binomial distribution)} the $k$-th successful time. $\Pb(X=n)=\binom{n-1}{k-1}p^k(1-p)^{n-k},\,n\ge k$.
+
+{\bs Exercise 2.16.b} Break the sequence of flips up into disjoint blocks of $\left\lfloor \log_2 n - 2\log_2\log_2 n\right\rfloor$ consecutive flips. For sufficiently large $n$, the probability is less than
+\[
+	\left(1-2^{\log_2n-2\log_2\log_2n}\right)^\frac{n}{\log_2n-2\log_2\log_2n}<\left(1-\frac{n}{\log_2^2n}\right)^{\frac{n}{\log_2^2 n}\cdot\log_2 n} < e^{-\ln n} = \frac{1}{n}.
+\]
+
+{\bs Exercise 2.29} If $\{X_n\}$ is a sequence of random variable satisfying $X_n\ra X$ \href{https://en.wikipedia.org/wiki/Almost_surely}{\bf almost surely} (i.e. except possibly on an event of zero probability) then \href{https://en.wikipedia.org/wiki/Monotone_convergence_theorem}{\bf (monotone convergence)} if $0\le X_n\le X_{n+1}$ for all $n$ almost surely, then $\E[X_n]\ra\E[X]$; \href{https://en.wikipedia.org/wiki/Dominated_convergence_theorem}{\bf (dominated convergence)} if $\lvert X_n\rvert \le Y$ for all $n$ almost surely and $\E[Y]$ is finite, then $\E[X_n]\ra\E[X]$. 
+
+Let $Z_n=\sum_{i=0}^{n}X_n$. We have $Z_n \ra \sum_{i=0}^{\infty} X_n$ and $\lvert Z_n \rvert \le \sum_{i=0}^{\infty} \lvert X_n \rvert$ whose expectation is finite ($\E[\sum_{i=0}^{\infty}|X_n|]=\sum_{i=0}^{\infty}\E[|X_n|]<\infty$ is a consequence of monotone convergence). By dominated convergence, it follows that
+\[
+	\sum_{j=0}^{n}\E[X_j]=\E\biggl[\,\sum_{j=0}^{n}X_j\biggr]=\E[Z_n] \ra \E[Z] = \E\biggl[\,\sum_{j=0}^{\infty}X_j\biggr],\qquad n \ra \infty.
+\]
+
+{\bs Exercise 2.32} For $i > m$, $\Pb(E_i)=\frac{1}{n}\cdot\frac{m}{i-1}$. Putting this all together, we get $\Pb(E)=\frac{m}{n}\sum_{j=m+1}^{n} \frac{1}{j-1}$. Then,
+\[
+	\frac{m}{n}\cdot \ln\left(\frac{n}{m}\right)=\frac{m}{n}\cdot\int_{m+1}^{n+1}\frac{\D x}{x-1}\le \Pb(E)\le \frac{m}{n}\cdot\int_{m}^{n}\frac{\D x}{x-1}=\frac{m}{n}\cdot\ln\left(\frac{n-1}{m-1}\right)
+\]
+Note that $m(\ln n-\ln m)/n$ is maximized when $m=n/e$ and $\Pb(E) \ge 1/e$ for this choice of $m$.
 
 \end{document}

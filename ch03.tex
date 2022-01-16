@@ -1,0 +1,72 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\minispacing
+
+\section{Moments and Deviations}
+
+\begin{theorem}\tb{(Markov's Inequlity)}
+	Let $X$ be a random variable with only nonnegative values. Then, for all $a > 0$,
+	\[
+		\Pb(X \ge a) \le \frac{\E[X]}{a}
+	\]
+\end{theorem}
+
+\begin{pf}
+	For $a > 0$, let $I=1$ (if $X\ge a$) or $0$ (otherwise), and note that $I \le X / a$. Taking expectaions on both sides, thus yields $\Pb(X \ge a) = \E[I] = \le \E[X / a] = \E[X] / a$.
+\end{pf}
+
+The \tb{$k$-th moment} of a random variable $X$ is $\E[X^k]$. The \tb{variance} of random variable $X$ is defined as $\Var[X]=\E[(X-\E[X])^2]=\E[X^2]-\E[X]^2$, and the \tb{standard deviation} of a random variable $X$ is $\sigma[X]=\sqrt{\Var[X]}$. The \tb{convariance} of two random variables $X$ and $Y$ is $\Cov(X,y)=\E[(X-\E[X])(Y-\E[Y])]$, and we have
+
+\begin{lemma}
+	For any two random variables $X$ and $Y$, $\Var[X+Y]=\Var[X]+\Var[Y]+2\cdot\Cov(X,Y)$.
+\end{lemma}
+
+\begin{lemma}
+	For any two independent random variables $X$ and $Y$, $\E[X \cdot Y] = \E[X] \cdot \E[Y]$. (the opposite does not hold)
+\end{lemma}
+
+\begin{corollary}
+	If $X$ and $Y$ are independent random variables, then $\Cov(X,Y)=0$.
+\end{corollary}
+
+\begin{theorem}\tb{(Linearity of variance)}
+	Let $X_1,X_2,\cdots,X_n$ be mutually independent random variables. Then
+	\[
+		\Var\biggl[\;\!\sum_{i=1}^{n}X_i\biggr]=\sum_{i=1}^{n}\Var[X_i]
+	\]
+\end{theorem}
+
+For example, a Bernoulli trial with success probability $p$ has variable $p(1-p)$, therefore the variance of a binomial random variable $X$ with parameters $n$ and $p$ is $np(1-p)$.
+
+\begin{theorem}\tb{(Chebyshev's inequality)}
+	Let $X$ be a random variable. Then, for any $a > 0$,
+	\[
+		\Pb\left(\lvert X-\E[X]\rvert\ge a\right)\le \frac{\Var[X]}{a^2}
+	\]
+\end{theorem}
+
+\begin{pf}
+	We can apply Markov's inequality to prove:
+	\[
+		\Pb(|X-\E[X]|\ge a)=\Pb((X-\E[X])^2\ge a^2)\le\frac{\E[(X-\E[X])^2]}{a^2}=\frac{\Var[X]}{a^2}
+	\]
+	A useful variant of Chebyshev’s inequality is to substitute $a$ with $t\cdot\sigma[X]\;(t\ge 1)$.
+\end{pf}
+
+The \tb{median} of random variable $X$ is defined to be any value $m$ such that $\Pb(X\le m)\ge 1/2$ and $\Pb(X\ge m)\ge 1/2$.
+
+\begin{theorem}
+	For any random variable $X$ with finite expectaion $\E[X]$ and finite median $m$,
+	\begin{itemize}
+		\item the expectaion $\E[X]$ is the value of $c$ that minimizes the expression $\E[(X-c)^2]$.
+		\item the median $m$ is the value of $c$ that minimizes the expression $\E[\lvert X-c \rvert]$.
+	\end{itemize}
+\end{theorem}
+
+\begin{corollary}
+	$\lvert \mu-m\rvert = \lvert \E[X]-m\rvert = \lvert\E[X-m]\rvert \le \E[\lvert X-m\rvert]\le \E[\lvert X-\mu\rvert]\le \sqrt{\E[(X-\mu)^2]}=\sigma$.
+\end{corollary}
+
+\end{document}
+
