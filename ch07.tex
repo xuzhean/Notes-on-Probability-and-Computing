@@ -5,4 +5,84 @@
 
 \section{Markov Chains and Random Walks}
 
+A \tb{stochastic process} $\mathbf{X}=\{X(t) : t \in T\}$ is a collection of random variables $X(t)$ (interchangeably, $X_t$), the \tb{state} of process at time $t$. Assume stochastic processes below are discrete time and discrete space.
+
+A discrete time stochastic process $X_0,X_1,X_2,\cdots$ is a (time-homogeneous) \tb{Markov chain} if and only if $\Pb(X_t=a_t\mid X_{t-1}=a_{t-1},X_{t-2}=a_{t-2},\cdots,X_0=a_0)=\Pb(X_t=a_t\mid X_{t-1}=a_{t-1})=P_{a_{t-1},a_{t}}$. The state $X_t$ only depends on the previous state $X_{t-1}$. This is called the \tb{Markov property} or \tb{memoryless property}, and we say that chain is \tb{Markovian}. The transition probabilities form a one-step \tb{transition matrix} $P$, and for all $i$, $\sum_{j\ge 0}P_{i,j}=1$. Let $p(t) = (p_0(t),p_1(t),p_2(t),\cdots)$ represents the distribution of the state at time $t$, and we have $p(t)=p(t-1)\cdot P$.
+
+In the finite case, it is equivalent to analyzing the connectivity structure of the directed graph (i.e. strongly connected component). It follows several trivial definitions and conclusions. State $j$ is \tb{accessible} from state $i$ if $\exists\;\! n\ge 0,P^n_{i,j}>0$. If two states $i$ and $j$ are accessible from each other, we say that they \tb{communicate}. A Markov chain is \tb{irreducible} if all states belong to one communicating class. Let $r^t_{i,j}=\Pb(X_t=j \wedge \forall 1\le s\le t-1,X_s\not=j \mid X_0=i)$. A state is \tb{recurrent} if $\sum_{t\ge 1}r^t_{i,i}=1$, and \tb{transient} otherwise. Let $h_{i,j}=\sum_{t\ge 1}t\cdot r^t_{i,j}$. A recurrent state $i$ is \tb{positive recurrent} if $h_{i,i}<\infty$. Otherwise, it is \tb{null recurrent} (this occurs only in infinite case).
+
+\begin{lemma}
+    In a finite Markov chain, at least one state is recurrent, and all recurrent states are positive recurrent.
+\end{lemma}
+
+A state $j$ in a discrete time Markov chain is \tb{periodic} if there exists and integer $\Delta > 1$ such that $\Pb(X_{t+s}=j\mid X_t=j)=0$ unless $\Delta \mid s$. A discrete time Markov chain is periodic if any state in the chain is periodic. A state of chain that is not periodic is \tb{aperiodic}. An aperiodic, positive recurrent state is an \tb{ergodic} state. A Markov chain is ergodic if all its states are ergodic.
+
+A \tb{stationary distribution} $\pi$ of a Markov chain is a probability distribution $\pi$ such that $\pi=\pi\cdot P$.
+
+\begin{theorem}
+    Any finite, irreducible, and ergodic Markov chain has the following properties:
+    \begin{itemize}
+        \item the chain has a unique stationary distribution $\pi=(\pi_0,\pi_1,\cdots,\pi_n)$;
+        \item for all $j$ and $i$, the limit $\lim_{t\ra\infty}P^t_{j,i}$ exists and it is independent of $j$;
+        \item $\pi_i=\lim_{t\ra\infty}P^t_{j,i}=1/h_{i,i}$.
+    \end{itemize}
+\end{theorem}
+
+\begin{lemma}
+    For any irreducible, ergodic Markov chain and for any state $i$, the limit $\lim_{t\ra\infty}P^t_{i,i}=1/h_{i,i}$.
+\end{lemma}
+
+The expected time between visits to $i$ is $h_{i,i}$ and therefore state $i$ is visited $1/h_{i,i}$ of the time. Thus, if $\lim_{t\ra\infty}P^t_{i,i}$ exists, it must be $1/h_{i,i}$. In fact, any finite Markov chain has a stationary distribution; but in the case of periodic state $i$, the stationary probability $\pi_i$ is not the limiting probability of being in $i$ (which does not exist) but instead just the long-term frequency of visiting state $i$. We can compute the stationary distribution by solving $\pi\cdot P = \pi$.
+
+Considering the \tb{cut-sets} of Markov chain, for any state $i$ of the chain, $\sum_{j=0}^{n}\pi_jP_{j,i}=\pi_i=\pi_i\sum_{j=0}^{n}P_{i,j}$. It follows
+
+\begin{theorem}
+    Let $S$ be a set of states of a finite, irreducible, aperiodic Markov chain. In the stationary distribution, the probability that the chain leaves the set $S$ equals the probability that it enters $S$.
+\end{theorem}
+
+\begin{theorem}
+    Consider a finite, irreducible, and ergodic Markov chain with transition matrix $P$. If there are nonnegative numbers $\pi=(\pi_0,\cdots,\pi_n)$ such that $\sum_{i=0}^{n}\pi_i=1$ and if, for any pair of states $i,j$, $\pi_iP_{i,j}=\pi_jP_{j,i}$, then $\pi$ is the stationary distribution corresponding to $P$.
+\end{theorem}
+
+Chains that satisfy the condition $\pi_iP_{i,j}=\pi_jP_{j,i}$ are called \tb{time reversible}.
+
+\begin{theorem}
+    Any irreducible aperiodic Markov chain belongs to one of the following two categories:
+    \begin{itemize}
+        \item the chain is ergodic -- for any pair of states $i$ and $j$, the limit $\lim_{t\ra\infty}P^t_{j,i}$ exists and is independent of $j$, and the chain has a unique stationary distribution $\pi_i=\lim_{t\ra\infty}P^t_{j,i}>0$; or 
+        \item no state is positive recurrent -- for all $i$ and $j$, $\lim_{t\ra\infty}P^t_{j,i}=0$, and the chain has no stationary distribution.
+    \end{itemize}
+\end{theorem}
+
+A \tb{random walk} on $G$ is a Markov chain, where $P_{i,j}=1\,/\,\mathrm{deg}(i)$.
+
+\begin{lemma}
+    A random walk on an undirected graph $G$ is aperiodic if and only if $G$ is not bipartite.
+\end{lemma}
+
+\begin{theorem}
+    A random walk on $G$ converges to a stationary distribution $\pi$, where $\pi_v=\mathrm{deg}(v)\,/\,2 |E|$.
+\end{theorem}
+
+Denote \tb{hitting time} $h_{u,v}$ the expected time to reach state $v$ when starting at state $u$. The \tb{cover time} of a graph $G$ is the maximum over all nodes $v\in V$ of the expected time to visit all of the nodes by a random walk starting from $v$.
+
+\begin{lemma}
+    If $(u,v)\in E$, the commute time $h_{u,v}+h_{v,u}$ is at most $2 |E|$.
+\end{lemma}
+
+\begin{lemma}
+    The cover time of $G=(V,E)$ is bounded above by $2|E|(|V|-1)$.
+\end{lemma}
+
+\begin{theorem}\na{Matthews' theorem}
+    The cover time $C_G$ of $G=(V,E)$ with $n$ vertices is bounded by
+    \[C_G\le H(n-1)\max_{u,v\in V: u\not=v}h_{u,v}.\]
+\end{theorem}
+
+\begin{pf}
+    Consider a random permutation $\{Z_1,Z_2,\cdots,Z_n\}$. Assume that we have computed the expected time visiting all of $\{Z_1,\cdots, Z_{j-1}\}$. If $Z_j$ is not the first visiting node in $\{Z_1,\cdots, Z_j\}$, it contributes nothing. Otherwise, it contributes to the answer with the probability of $1/j$.
+\end{pf}
+
+\tb{Parrondo's paradox} shows that two losing games can be combined to make a winning game.
+
 \end{document}
