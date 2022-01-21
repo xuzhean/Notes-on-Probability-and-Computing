@@ -64,7 +64,7 @@ A \tb{random walk} on $G$ is a Markov chain, where $P_{i,j}=1\,/\,\mathrm{deg}(i
 	A random walk on $G$ converges to a stationary distribution $\pi$, where $\pi_v=\mathrm{deg}(v)\,/\,2 |E|$.
 \end{theorem}
 
-Denote \tb{hitting time} $h_{u,v}$ the expected time to reach state $v$ when starting at state $u$. The \tb{cover time} of a graph $G$ is the maximum over all nodes $v\in V$ of the expected time to visit all of the nodes by a random walk starting from $v$.
+Denote \tb{hitting time} $h_{u,v}$ the expected time to reach state $v$ when starting at state $u$. The \tb{cover time} of a graph $G$ is the maximum over nodes $v\in V$ of the expected time to visit all of the nodes by a random walk starting from $v$.
 
 \begin{lemma}
 	If $(u,v)\in E$, the commute time $h_{u,v}+h_{v,u}$ is at most $2 |E|$.
@@ -91,7 +91,7 @@ Denote \tb{hitting time} $h_{u,v}$ the expected time to reach state $v$ when sta
 
 \bigskip
 
-{\bs A random algorithm for 3-Satisfiability}
+{\bs A random algorithm for 3-Satisfiability} ...
 
 \bigskip
 
@@ -107,7 +107,7 @@ Hence $h^t_{0,0}$ is finite when $p < 1/2$ and is infinite when $p = 1/2$.
 \[
 	\sum_{n=1}^{\infty}P_2(2n)=\sum_{n=1}^{\infty}P_1(2n)^2=\sum_{n=1}^{\infty}\biggl(\frac{\binom{2n}{n}}{2^{2n}}\biggr)^2\simeq\sum_{n=1}^{\infty}\frac{1}{\pi n} = \infty,\qquad \text{since }n!\sim n^ne^{-n}\sqrt{2\pi n} \text{ (Stirling’s formula)}
 \]
-In the case of $d=3$, we have $P_3(n)=\Theta(n^{-3/2})$. The explicitly expectation formula can be derived by Fourier analysis.
+In the case of $d=3$, we have $P_3(n)=\Theta(n^{-3/2})$. The explicit expectation formula can be derived by Fourier analysis.
 
 \ex{7.22} Formulate a new Markov chain with $n^2$ states of the form $(i, j)$. By Lemma 1.9, $h_{u,v}\le 4m^2$, and we can construct a length $O(n)$ path from $(i,j)$ to $(i,i)$, which gives us an upper bound of $O(m^2n)$.
 
