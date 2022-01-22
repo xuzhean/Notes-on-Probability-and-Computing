@@ -37,8 +37,8 @@ Let $X_1,\cdots,X_n$ be a sequence of independent Bernoulli trials with $\Pb(X_i
 
 \begin{corollary}
 	Let $X$ be a Poisson binomial distribution. Then, for $0<\delta<1$, 
-	\[\Pb(X\ge(1+\delta)\cdot\mu)\le \exp\left(-\mu\delta^2\cdot (2\ln 2-1)\right),\qquad\Pb(X\ge(1-\delta)\cdot\mu)\le \exp\left(-\mu\delta^2/2\right).\]
-	The coefficient $(2\ln 2-1)$ and $1/2$ are derived from $\min((1+\delta)\cdot \ln(1+\delta)/\delta^2 - 1/ \delta)$ in $\delta\in(0,1)$ and $\delta\in(-1,0)$.
+	\[\Pb(X\ge(1+\delta)\cdot\mu)\le \exp\left(-\mu\delta^2\cdot (2\ln 2-1)\right),\qquad\Pb(X\ge(1-\delta)\cdot\mu)\le \exp\left(-\mu\delta^2\Div 2\right).\]
+	The coefficient $(2\ln 2-1)$ and $1/2$ are derived from $\min((1+\delta)\cdot \ln(1+\delta)\Div\delta^2 - 1\Div \delta)$ in $\delta\in(0,1)$ and $\delta\in(-1,0)$.
 \end{corollary}
 
 \begin{theorem}
@@ -55,7 +55,7 @@ Let $X_1,\cdots,X_n$ be a sequence of independent Bernoulli trials with $\Pb(X_i
 \end{lemma}
 
 \begin{pf}
-	Assum $\E[X]=0$ and $a\le 0\le b$. Since $e^{\lambda x}$ is a convex function, we have
+	Assume $\E[X]=0$ and $a\le 0\le b$. Since $e^{\lambda x}$ is a convex function, we have
 	\[\E[e^{\lambda X}]\le\E\left[\frac{b-X}{b-a}\cdot e^{\lambda a}\right] + \E\left[\frac{X-a}{b-a}\cdot e^{\lambda b}\right] = \frac{b}{b-a}\cdot e^{\lambda a} - \frac{a}{b-a}\cdot e^{\lambda b} = e^{g(u)},\quad\text{where }u=\lambda\cdot(b-a).\]
 	Then $g(u)=-c\cdot u+\ln(1-c+c\cdot e^u)$ with $c=-a\,/\,(b-a)$. We can verify that $g(0)=g'(0)=0$ and $g''(u)\le 1/4$. By Taylor's theorem, for any $u > 0$ there is a $u_0\in[0,u]$ such that $g(u)=g(0)+u\cdot g(0)+u^2\cdot g''(u_0)\,/\,2\le u^2\,/\,8$.
 \end{pf}
@@ -81,12 +81,6 @@ Let $X_1,\cdots,X_n$ be a sequence of independent Bernoulli trials with $\Pb(X_i
 
 \bigskip
 
-\ex{4.9}
-
-\ex{4.12}
-
-\ex{4.13}
-
-\ex{4.15}
+\ex{4.9} (a) Let $Z=\sum_{i=1}^{n} X_i / n$, and we have $\Var[Z] = \sum_{i=1}^{n}\Var[X_i] / n^2 = \Var[X] / n$. By Chebyshev’s Inequality, $\Pb(|X-\E[X]]\ge \eps\cdot \E[X])\le \Var[X] \Div (\sigma^2\cdot\E[X]^2) \le r^2\Div(n\cdot\sigma^2) \le \delta \Ra n \ge r^2\Div(\sigma^2\cdot\delta)$. (c) Assume that we have obtained $m=\lceil 12\log\frac{1}{\delta}\rceil$ independent estimates $S_1,\cdots,S_m$ for $\E[X]$. Let $Y_i$ be the $0$\;\!-$1$ random variable that is $1$ if and only if $|S_i-\E[X]|\ge\eps\cdot\mu$. $\E[Y_i]\le 1/4$. Applying the Chernoff bound gives $\Pb(|M-\E[X]|\ge\eps\cdot\E[X])\le\Pb(Y\ge(1+1)\cdot m \Div 4)\le\exp(-(m/4)\cdot 1^2\cdot(2\ln 2-1))\le\delta$.
 
 \end{document}
