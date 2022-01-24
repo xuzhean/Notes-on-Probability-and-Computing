@@ -5,4 +5,88 @@
 
 \section{Balls, Bins, and Random Graphs}
 
+\begin{theorem}
+	Let $X_n$ be a binomial random variable with parameters $n$ and $p$, where $p$ is a function of $n$ and $\lim_{n\ra\infty}np=\lambda$ is a constant that is independent of $n$. Then for any fixed $k$,
+	\[
+		\lim_{n\ra\infty}\Pb(X_n=k)=\frac{e^{-\lambda}\cdot\lambda^k}{k!}.
+	\]
+\end{theorem}
+
+\begin{sketch}
+	This theorem could be proven by the fact that $n^{\underline k}p^k\approx (np)^k$ and $(1-p)^{n-k}\approx e^{-np}$.
+\end{sketch}
+
+A \tb{discrete Poisson random variable} $X$ with parameter $\mu$ is given by the following probability distribution on $j=0,1,2,\cdots$, $\Pb(X=j)=e^{-\mu}\mu^j\Div j!$. Its expectation is $\mu$.
+
+\begin{lemma}
+	The sum of a finite number of independent Poisson random variables is a Poisson random variable.
+\end{lemma}
+
+\begin{lemma}
+	The moment generating function of a Poisson random variable with parameter $\mu$ is $M_x=e^{\mu(e^t-1)}$.
+\end{lemma}
+
+\begin{theorem}
+	Let $X$ be a Poisson random variable with parameter $\mu$. Then,
+	\[
+	\Pb(X\ge x)\le\frac{e^{-\mu(e\mu)^x}}{x^x},\quad \text{for } x>\mu;\qquad \Pb(X\le x)\le\frac{e^{-\mu(e\mu)^x}}{x^x},\quad\text{for }x<\mu.   
+	\]
+\end{theorem}
+
+After throwing $m$ balls independently and uniformly at random into $n$ bins, the joint distribution of the number of balls in all the bins is well approximated by assuming the load at each bin is an independent Poisson random variable with mean $m/n$.
+Let $(X^{(m)}_1,\cdots,X^{(m)}_n)$ be the former distribution, and $(Y^{(m)}_1,\cdots,Y^{(m)}_n)$ be the latter distribution.
+
+\begin{theorem}
+	The distribution of $(Y^{(m)}_1,\cdots,Y^{(m)}_n)$ conditioned on $\sum_{i}Y^{(m)}_i=k$ is same as $(X^{(k)}_1,\cdots,X^{(k)}_n)$.
+\end{theorem}
+
+\begin{theorem}
+	Let $f(x_1,\cdots,x_n)$ be a nonegative function. Then $\E[f(X^{(m)}_1,\cdots,X^{(m)}_n)]\le e\sqrt m\cdot\E[f(Y^{(m)}_1,\cdots,Y^{(m)}_n)]$.
+\end{theorem}
+
+\begin{sketch}
+	This theorem could be proven by the fact that $\Pb(\sum Y^{(m)}_i=m)=m^me^{-m}\Div m!>1\Div e\sqrt{m}$.
+\end{sketch}
+
+\begin{lemma}
+	When $n$ balls are thrown independently and uniformly at random into $n$ bins, the probability that maximum load is more than $3\ln n / \ln\ln n$ is at most $1/n$ for $n$ sufficiently large.
+\end{lemma}
+
+\begin{sketch}
+	The probability is at most $n\binom{n}{m} n^{-M}\le n\Div M!\le ne^{M}\Div M^M\le 1\Div  n$.
+\end{sketch}
+
+\begin{lemma}
+	When $n$ balls are thrown independently and uniformly at random into $n$ bins, the probability that maximum load is at least $M = \ln n / \ln\ln n$ is at least $1-1/n$ for $n$ sufficiently large. 
+\end{lemma}
+
+\begin{sketch}
+	The probability is at most $e\sqrt{n}(1-(eM!)^{-1})^n\le e\sqrt{n}\cdot e^{-n/(eM!)}<e\sqrt{n}\cdot n^{-2}<1/n$ ($M!\le n \Div (2e\ln n$)).
+\end{sketch}
+
+\begin{theorem}
+	Let $X$ be the number of coupons observed before obtaining one of each of $n$ types of coupons. Then, for any constant $c$, $\lim_{n\ra\infty}\Pb(X>n\ln n+cn)]=1-e^{-e^{-c}}$. (refer p.111)
+\end{theorem}
+
+\bigskip
+
+\ex{5.14} $\Pb(Z=\mu+h)\ge\Pb(Z=\mu-h-1)\Lra \mu^{2h+1}\ge (\mu+h)! / (\mu-h-1)!$. It follows $\Pb(Z\ge \mu)\ge 1/2$.
+
+\ex{5.15} Assume that $\E[f(X^{(m)}_1,\cdots,X^{(m)}_n)]$ monotonically increasing in $m$. Then,
+\[
+	\E[f(X^{(m)})]\le\E\Bigl[f(Y^{(m)}) \Bigm|  \sum Y_i\ge m\Bigr]\le \E[f(Y^{(m)})] \Div \Pb\Bigl(\sum Y_i\ge m\Bigr) \le 2 \cdot \E[f(Y^{(m)})].
+\]
+
+\ex{5.16} (a) $\E[X_1X_2\cdots X_k]\le\sum_{i=k}^{n}\binom n i (1-k/n)^{n-i}(i/n)^{i}\le(1-k/n)^n\le(1-1/n)^{nk}=\E[Y_1Y_2\cdots Y_k]$. (b) Using expansion for $e^x$, it is equal to $\E[X^j]=\E[(\sum X_i)^j]=\sum_c\E[\prod_{i=1}^{n}X_i^{c_i}]=\sum\E[\prod_{i=1}^{k}X_i]\le\sum\E[\prod_{i=1}^{k}Y_i]=\E[Y^j].$
+(c) Since $\E[X]=\E[Y]$, we have $\Pb(X\ge (1+\delta)\E[X])\le (e^\delta/(1+\delta)^{1+\delta})^{\E[X]}$.
+
+\ex{5.19} Let $p = \frac{\ln n+O(1)}{n}$ and $K$ be the size of the minimum component. In the case of  $2\le K\le n/2$,
+\[
+	\begin{split}
+		&\Pb(2\le K\le n/2)\le\sum_{k=2}^{n/2}\binom{n}{k}(1-p)^{k(n-k)}k^{k-2}p^{k-1}\le p^{-1}\sum_{k=2}^{n/2}\left(\frac{en}{k}\right)^k(1-p)^{kn/2}k^kp^k\\
+		\le\,&p^{-1}\sum_{k=2}^{n/2}\left(n\cdot e^{1-pn/2}\cdot p\right)^k=p^{-1}\sum_{k=2}^{n/2}\left(O\left(\frac{\ln n}{\sqrt n}\right)\right)^k \ra 0,\qquad \text{as } n\ra\infty.
+	\end{split}
+\]
+Note that when $k=2$, $(n-1)$ should not be reduced to $n/2$. In the case of $K=1$, $\Pb(K=1)\le n\cdot(1-p)^{n-1}\ra 0$, when $p=\frac{c\cdot \ln}{n}\,(c>1)$. More precise results can be found \href{https://www.math.cmu.edu/~af1p/MAA2005/L2.pdf}{here}.
+
 \end{document}

@@ -34,7 +34,7 @@
 \newtheorem{remark}{Remark}
 \newtheorem{example}{Example}[section]
 \declaretheoremstyle[
-  spaceabove=\parskip,
+  spaceabove=0.3em,
   spacebelow=0em,
   headfont=\normalfont\itshape,
   postheadspace=1em,
@@ -44,6 +44,8 @@
 ]{pf}
 \declaretheorem[name={solution},style=mystyle,unnumbered,
 ]{sol}
+\declaretheorem[name={Sketch},style=mystyle,unnumbered,
+]{sketch}
 \renewcommand{\proofname}{proof}
 \newenvironment{solution}{\begin{proof}[solution]}{\end{proof}}
 
@@ -61,11 +63,13 @@
 \newcommand{\ti}{\textit}
 \newcommand{\Ra}{\Rightarrow}
 \newcommand{\ra}{\rightarrow}
+\newcommand{\Lra}{\Leftrightarrow}
 \newcommand{\eps}{\varepsilon}
 \newcommand{\D}{\mathrm{d}\;\!}
 \newcommand{\Div}{\;\!/\;\!}
 \newcommand{\ex}[1]{{\bs Exercise #1\;}}
 \newcommand{\na}[1]{\tb{(#1)}}
+\newcommand{\Note}{\vskip -0.3em \hspace*{2em}}
 \newcommand{\rnum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 \newcommand{\minispacing}{
 \setlength{\abovedisplayshortskip}{0.5em}
