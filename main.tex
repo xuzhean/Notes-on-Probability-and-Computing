@@ -40,8 +40,17 @@
   postheadspace=1em,
   qed=$\blacktriangleleft$
 ]{mystyle} 
+\declaretheoremstyle[
+  spaceabove=0.3em,
+  spacebelow=0em,
+  headfont=\normalfont\itshape,
+  postheadspace=1em,
+  qed={}
+]{mystyle2} 
 \declaretheorem[name={Proof},style=mystyle,unnumbered,
 ]{pf}
+\declaretheorem[name={Proof},style=mystyle2,unnumbered,
+]{pf2}
 \declaretheorem[name={solution},style=mystyle,unnumbered,
 ]{sol}
 \declaretheorem[name={Sketch},style=mystyle,unnumbered,

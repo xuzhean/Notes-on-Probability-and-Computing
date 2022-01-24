@@ -5,4 +5,64 @@
 
 \section{The Probabilistic Method}
 
+{\bs The Probabilistic Method} To prove the existence of an object with certain properties, we demonstrate a sample space of objects in which the probability is positive that a randomly selected object has the required properties. In many cases, the proofs of existence obtained by the probabilistic method can be converted into efficient randomized construction algorithms, while in some cases, these proofs can be converted into efficient deterministic construction algorithms. This process is called \tb{derandomization}.
+
+{\bs The Basic Counting Argument} Construct an appropriate probability space $\mathcal{S}$ of objects and then show that the probability that an object in $\mathcal{S}$ with the required properties is selected is strictly greater than $0$.
+
+\begin{theorem}
+    If $\binom n k 2^{-\binom k 2 + 1} < 1$ then it is possible to color the edges of $K_n$ with two colors so that it has no monochromatic $K_k$ subgraph.
+\end{theorem}
+
+{\bs The Expectation Argument} Suppose we have a (discrete) probability space $\mathcal{S}$ and a random variable $X$ defined on $\mathcal{S}$ such that $\E[X]=\mu$. Then $\Pb(X\ge \mu) >0$ and $\Pb(X\le \mu)>0$.
+
+\begin{theorem}
+    Give $G=(V,E)$, there is a cut with value at least $|E|\Div 2$.
+\end{theorem}
+
+{\bs Method of Conditional Expectations} Derandomize the algorithms.
+
+{\bs Sample and Modify} In the first stage we construct a random structure that does not have the required properties. In the second stage we then modify the random structure so that it does have the required properties.
+
+\begin{theorem}
+    Let $G=(V,E)$ be a connected graph on $n$ vertices with $m\ge n/2$ edges. Then $G$ has an independent set with at least $n^2/4m$ vertices.
+\end{theorem}
+
+\begin{theorem}
+    For any integer $k\ge 3$, for $n$ sufficiently large there is a graph with $n$ nodes, at least $\frac{1}{4}n^{1+1/k}$ edges, and \tb{girth} (i.e. the length of its smallest cycle) at least $k$.
+\end{theorem}
+
+{\bs The Second Moment Method} If $X$ is an integer-valued random variable, then $\Pb(X=0)\le \Var[X] / (\E[X])^2$. It can be used to prove the threshold behavior of certain random graph properties.
+
+\begin{lemma}
+    Let $Y_i$ be $0\;\!$-$1$ random variables, and Let $Y=\sum_{i=1}^{m}Y_i$. Then $\Var[Y]\le\E[Y]+\sum_{i\not=j}\Cov(Y_i,Y_j)$.
+\end{lemma}
+
+\begin{theorem}
+    In $G_{n,p}$, suppose that $p=f(n)$, where $f(n)=o(n^{-2/3})$. The probability that a random graph chosen from $G_{n,p}$ has a clique of four vertices is approximate to $0$ as $n\ra\infty$. If $f(n)=\omega(n^{-2/3})$, it approximate to $1$.
+\end{theorem}
+
+{\bs The Conditional Expectation Inequality} Let $X=\sum_{i=1}^{n}X_i$, where each $X_i$ is a $0\;\!$-$1$ random variable. Then
+\[
+    \Pb(X > 0) = \sum_{i=1}^{n}\E[1/X\mid X_i=1]\cdot \Pb(X_i=1) \ge \sum_{i=1}^{n} \frac{\Pb(X_i=1)}{\E[X\mid X_i=1]}
+\]
+
+{\bs The Lovász Local Lemma} One of the most elegant and useful tools in probabilistic method...
+
+An event $E_{n+1}$ is \tb{mutually independent} of the events $E_1,\cdots,E_n$ if, for any subset $I\subseteq[1,n]$, $\Pb(E_{n+1}|\bigcap_{j\in I} E_j)=\Pb(E_{n+1})$. A \tb{dependency graph} for a set of events $E_1,\cdots,E_n$ is a directed graph $G=(V,E)$ such that event $E_i$ is mutually independent of the events $\{E_j\mid(i,j)\not\in E\}$. The \tb{degree} of this graph is the maximum degree of vertices.
+
+\begin{theorem}\na{Lovász Local Lemma} Let $E_1,\cdots,E_n$ be a set of events, and assume that for all $i$, $Pb(E_i)\le p$ and $4\cdot\mathtt{degree}\cdot p\le 1$. Then $\Pb(\bigcap_{i=1}^{n}\bar{E_i})>0$.
+
+\begin{pf2}
+    Let $S\subset\{1,\cdots,n\}$. By induction on $s=0,\cdots,n-1$ that, if $|S|\le s$, then for all $k\not\in S$ we have
+    \[
+        \Pb\biggl(E_k\biggm|\bigcap_{j\in S}\bar{E_j}\biggr)\le 2p,\qquad \Pb\biggl(\bigcap_{i=1}^{s}\bar{E_i}\biggr)=\prod_{i=1}^{s}\biggl(1-\Pb\biggl(E_i\biggm|\bigcap_{j=1}^{s-1}\bar{E_j}\biggr)\biggr)\ge\prod_{i=1}^{s}(1-2p)>0.
+    \]
+    Let $S_1=\{j\in S\mid (k,j)\in E\}$ and $S_2=S-S_1$. Assume $|S_2|<s$. Let $F_S$ be defined by $F_T=\bigcap_{j\in T}\bar{E_j}$. We have
+    \[
+        \Pb(E_k\mid F_S)=\frac{\Pb(E_k\cap F_{S_1}\mid F_{S_2})}{\Pb(F_{S_1}\mid F_{S_2})} \le \frac{\Pb(E_k\mid F_{S_2})}{1-\sum_{i\in S_1}\Pb\bigl(E_i\bigm|\cap_{j\in S_2}\bar{E_j}\bigr)}\le\frac{\Pb(E_k)}{1-2pd}\le{2p}. \eqno\blacktriangleleft 
+    \]
+\end{pf2}
+
+\end{theorem}
+
 \end{document}
