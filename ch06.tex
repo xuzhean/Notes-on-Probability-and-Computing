@@ -21,7 +21,7 @@
 
 {\bs Method of Conditional Expectations} Derandomize the algorithms.
 
-{\bs Sample and Modify} In the first stage we construct a random structure that does not have the required properties. In the second stage we then modify the random structure so that it does have the required properties.
+{\bs Sample and Modify} In the first stage we construct a random structure that does not have the required properties. In the second stage, we then modify the random structure so that it does have the required properties.
 
 \begin{theorem}
     Let $G=(V,E)$ be a connected graph on $n$ vertices with $m\ge n/2$ edges. Then $G$ has an independent set with at least $n^2/4m$ vertices.
@@ -46,11 +46,12 @@
     \Pb(X > 0) = \sum_{i=1}^{n}\E[1/X\mid X_i=1]\cdot \Pb(X_i=1) \ge \sum_{i=1}^{n} \frac{\Pb(X_i=1)}{\E[X\mid X_i=1]}
 \]
 
-{\bs The Lovász Local Lemma} One of the most elegant and useful tools in probabilistic method...
+{\bs The Lovász Local Lemma} One of the most elegant and useful tools in the probabilistic method...
 
 An event $E_{n+1}$ is \tb{mutually independent} of the events $E_1,\cdots,E_n$ if, for any subset $I\subseteq[1,n]$, $\Pb(E_{n+1}|\bigcap_{j\in I} E_j)=\Pb(E_{n+1})$. A \tb{dependency graph} for a set of events $E_1,\cdots,E_n$ is a directed graph $G=(V,E)$ such that event $E_i$ is mutually independent of the events $\{E_j\mid(i,j)\not\in E\}$. The \tb{degree} of this graph is the maximum degree of vertices.
 
 \begin{theorem}\na{Lovász Local Lemma} Let $E_1,\cdots,E_n$ be a set of events, and assume that for all $i$, $Pb(E_i)\le p$ and $4\cdot\mathtt{degree}\cdot p\le 1$. Then $\Pb(\bigcap_{i=1}^{n}\bar{E_i})>0$.
+\end{theorem}
 
 \begin{pf2}
     Let $S\subset\{1,\cdots,n\}$. By induction on $s=0,\cdots,n-1$ that, if $|S|\le s$, then for all $k\not\in S$ we have
@@ -63,6 +64,32 @@ An event $E_{n+1}$ is \tb{mutually independent} of the events $E_1,\cdots,E_n$ i
     \]
 \end{pf2}
 
+\begin{theorem}\na{Asymmetric Lovász Local Lemma}
+    Let $E_1,\cdots,E_n$ be a set of events, and assume there exist $x_1,\cdots,x_n\in[0,1]$ such that, for all $i$, $\Pb(E_i)\le x_i\prod_{(i,j)\in E}(1-x_j)$. Then $\Pb(\bigcap_{i=1}^{n}\bar{E_i})\ge\prod_{i=1}^{n}(1-x_i)$.
 \end{theorem}
+
+\begin{theorem}
+    If any path in $F_i$ shares edges with no more than $k$ paths in $F_j$, where $i\not=j$ and $8nk/m\le 1$, then there is a way to choose $n$ edge-disjoint paths connecting the $n$ pairs.
+\end{theorem}
+
+\begin{theorem}
+    If no variable in a $k$-SAT formula appears in more than $T=2^k/4k$ clauses, then the formula has a satisfying assignment.
+\end{theorem}
+
+\bigskip
+
+{\bs Explicit constructions Using the Local Lemma} ...
+
+{\bs The Algorithmic Lovász Local Lemma} ...
+
+\bigskip
+
+\ex{6.10} Choose a random $n$-permutation, and let $X_k = 1$ if the first $k$ numbers in the permutation yield a set in $\mathcal{F}$. Then, $1\ge\E[X]=\sum_{k=0}^{n}\Pb(X_k=1)=\sum_{k=0}^{n}f_k\binom n k ^{-1}\ge\sum{k=0}^{n}f_k\binom n {n/2}^{-1}=|\mathcal{F}|\binom n {n/2}^{-1}.$
+
+\ex{6.14} Let $X_i$ be $1$ if the ith vertex is isolated and $0$ otherwise. $P(X_i=1)=(1-c\ln n/ n)^{n}\approx e^{-c\ln n}=n^{-c}$, and $\E[X\mid X_i=1]=1+\sum_{j\not=i}\Pb(X_j=1\mid X_i=1)\approx 1+n^{-c}$. Then, $\Pb(X>0)\ge n^{1-c}\Div(1+(n-1)n^{-c})>1-\eps$.
+
+\ex{6.16} ...
+
+\ex{6.19} (a) $\Pb(A_{u,v,c})\le (64r^2)^{-1}$; (b) $A_{u,v,c}$ depend on $A_{u',v',c'}$ ($u = u'$ or $v = v'$). Thus, $d\le 16r^2$ and $4dp\le 1$.
 
 \end{document}
